@@ -1,0 +1,54 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: grey 3px solid;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    font-size: 140%;
+    font-weight: bolder;
+}
+
+.container {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 25px;
+}
+
+.flexBox {
+    display: flex;
+}
+
+.leftSideBar {
+    width: 28%;
+    padding-left: 10px;
+    padding-right: 35px;
+}
+
+.caption {
+    margin-top: -15px;
+}
+
+#midSideBar {
+    padding-top: 30px;
+    align-self: center;
+}
+
+.rightSideBar {
+    width: 30%;
+    padding-left: 20px;
+    text-align: left;
+}
+
+
+/* need to break up the page into 3 parts, side bar left, middle, side bar right */
