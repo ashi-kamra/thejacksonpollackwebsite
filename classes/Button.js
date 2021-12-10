@@ -11,7 +11,6 @@ class Button {
     }
 
     changeColor() {
-        console.log("a", this.brush);
         this.brush.colour = this.color;
         // console.log(this.color);
     }
