@@ -1,4 +1,4 @@
-let paintBrushButtonArray = [];
+let paintbrushButtonArray = [];
 
 
 function setup() {
@@ -8,13 +8,15 @@ function setup() {
 
     paintbrushTrial = new Paintbrush();
 
+    initializePaintbrushButtons();
+
     let resetButton = createButton('reset canvas!');
     resetButton.position(600, 130);
     resetButton.mousePressed(resetCanvas);
 
-    let changePaintbrush = createButton('circular paintbrush');
-    changePaintbrush.position(700, 130);
-    changePaintbrush.mousePressed(initalizeCircularPaintbrush);
+    // let changePaintbrush = createButton('circular paintbrush');
+    // changePaintbrush.position(700, 130);
+    // changePaintbrush.mousePressed(initializeCircularPaintbrush);
 
 }
 
@@ -23,8 +25,6 @@ function draw() {
     //transparent background to get the previous lines to show up
     paintbrushTrial.paint();
     paintbrushTrial.paintRandomDots();
-
-    initalizeCircularPaintbrush.paint();
 
 }
 
@@ -35,11 +35,6 @@ function resetCanvas() {
 function myMousePressed() {
     paintbrushTrial.randomChangeColor();
 
-}
-
-function myBackgroundColorButtonPressed(backgroundButton) {
-    let color1 = backgroundButton.changeBackground;
-    background(color1);
 }
 
 
@@ -53,12 +48,11 @@ function initializePaintbrushButtons() {
         let x = windowWidth / 3.2 + i * 80;
         //xlocation * windowWidth / 3 + 50
         let buttonItem = new Button(buttonColors[i], x, yValueOfButton, paintbrushTrial);
-        paintbrushbuttonArray.push(buttonItem);
+        paintbrushButtonArray.push(buttonItem);
         i++;
     }
 }
 
-function initializeCircularPaintbrush() {
-    let circBrush = new CircularPaintbrush();
-    return circBrush;
-}
+//function initializeCircularPaintbrush() {
+//paintbrushTrial = new CircularPaintbrush();
+//}

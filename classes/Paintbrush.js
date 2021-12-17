@@ -18,7 +18,7 @@ class Paintbrush {
     }
 
     paint() {
-
+        this.calcVelocity();
         let magOfVelo = this.veloVector.mag();
         let paintWidth = map(magOfVelo, 0, 1, 60, 1);
         stroke(this.colour);

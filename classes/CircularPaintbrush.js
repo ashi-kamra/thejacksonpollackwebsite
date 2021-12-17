@@ -4,8 +4,6 @@ class CircularPaintbrush extends Paintbrush {
     }
 
     paint() {
-        let magOfVelo = this.veloVector.mag();
-        let paintWidth = map(magOfVelo, 0, 1, 60, 1);
         fill(this.colour);
 
         const distance = dist(mouseX, mouseY, pmouseX, pmouseY)
@@ -15,7 +13,7 @@ class CircularPaintbrush extends Paintbrush {
         const midY = (mouseY + pmouseY) / 2
 
         // draw a circle at the midpoint, with distance as its diameter
-        circle(midX, midY, paintWidth)
+        circle(midX, midY, dist)
 
     }
 }
