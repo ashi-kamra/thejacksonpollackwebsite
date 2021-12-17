@@ -1,21 +1,19 @@
 let buttonArray = [];
 
 
-
 function setup() {
     let canvas = createCanvas(windowWidth / 2.5, 600);
-    canvas.parent("midSideBar");
+    canvas.parent("midSideBar"); //for the css file. p5.js automatically puts underneath all the div tags. but we're overriding that
+    canvas.mouseClicked(myMousePressed); ///only when the canvas is clicked does the color change
 
-    canvas.mouseClicked(myMousePressed);
     paintbrushTrial = new Paintbrush();
+
     initializeButtons();
+
     let resetButton = createButton('reset canvas!');
     resetButton.position(665, 130);
     resetButton.mousePressed(resetCanvas);
-
-
 }
-
 
 function draw() {
     background(254, 251, 234, 0);
@@ -30,7 +28,7 @@ function resetCanvas() {
 }
 
 function myMousePressed() {
-    paintbrushTrial.changeColor();
+    paintbrushTrial.randomChangeColor();
 
 }
 

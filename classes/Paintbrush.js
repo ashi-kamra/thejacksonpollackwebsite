@@ -2,41 +2,30 @@ class Paintbrush {
 
     constructor() {
         this.colour = color(0, 0, 0);
-        this.vMouse = {
-            velocityX: 0,
-            velocityY: 0,
-            pVelocityX: 0,
-            pVelocityY: 0
-        };
-        this.accelVector = createVector();
+
         this.veloVector = createVector();
 
     }
 
     calcVelocity() {
-        // let pVMouse = {...this.vMouse}; //previous velocity object literal
-        // let currentVelocityX = pVMouse.velocityX 
-        // let currentVelocityY = pVMouse.velocityY
+        let velocityX = (mouseX - pmouseX) / (deltaTime)
+        let velocityY = (mouseY - pmouseY) / (deltaTime)
 
-        this.vMouse.velocityX = (mouseX - pmouseX) / (deltaTime) //change in position over change in time for x-variable
-        this.vMouse.velocityY = (mouseY - pmouseY) / (deltaTime) //same withh y-variable
+        //change in position over change in time for x-variable
+        //same withh y-variable
 
-        // this.vMouse.pVelocityX = currentVelocityX; //setting the previous velocity to our current velocity to update
-        // this.vMouse.pVelocityY = currentVelocityY; //same here
-        this.veloVector.set(this.vMouse.velocityX, this.vMouse.velocityY);
-        return this.veloVector;
+        this.veloVector.set(velocityX, velocityY);
     }
 
     paint() {
 
-        let magOfVelo = this.calcVelocity().mag();
+        let magOfVelo = this.veloVector.mag();
         let paintWidth = map(magOfVelo, 0, 1, 60, 1);
-        // console.log(magOfVelo)
         stroke(this.colour);
         strokeWeight(paintWidth);
         line(mouseX, mouseY, pmouseX, pmouseY);
-        //paint line; need to find the magnitude of the acceleration vector
-        //need to make it more extreme, like its not an even conversion
+        //paint line
+
     }
 
     paintRandomDots() {
@@ -48,10 +37,9 @@ class Paintbrush {
             ellipse(xCoord, yCoord, randomWidth);
         } //inspired by bieber. the frequency at which the dots appears
 
-
     }
 
-    changeColor() {
+    randomChangeColor() {
         this.colour = color(random(255), random(255), random(255));
         console.log(this.colour);
     }
